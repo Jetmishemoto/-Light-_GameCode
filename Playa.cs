@@ -253,7 +253,7 @@ public class Playa : MonoBehaviour
     private bool canWallJumpLeft = false;
     private bool canWallJumpRight = false;
 
-     [SerializeField] bool lightspeed = false;
+     
 
     private bool wallJumpingArea = false;
 
@@ -295,7 +295,7 @@ public class Playa : MonoBehaviour
 
     //---
 
-
+    [SerializeField] bool lightspeed = false;
     public bool _lightSpeed
     {
         get { return lightspeed; }
@@ -308,7 +308,7 @@ public class Playa : MonoBehaviour
 
 
 
-    private bool canMove;
+   [SerializeField]  bool canMove;
     public bool _canMove
     {
         get
@@ -322,7 +322,7 @@ public class Playa : MonoBehaviour
     }
 
     // finishline logic 
-    private bool finished = false;
+    [SerializeField] bool finished = false;
 
     public bool Finished
     {
