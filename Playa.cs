@@ -84,8 +84,8 @@ public class Playa : MonoBehaviour
     [SerializeField] float _softAirBorneHight;
 
     int VelocityHash;
-   float _S_landingHash;
-    float _H_landingHash;
+   float _S_landingTimerHash;
+    float _H_landingTimerHash;
 
 
 
@@ -843,7 +843,7 @@ public class Playa : MonoBehaviour
             _airBorneTimer += _hardfallTime * Time.deltaTime;
             groundTimer = 0f;
             hardLandingTimer += _hardfallTime * Time.deltaTime;
-            _H_landingHash += _hardfallTime * Time.deltaTime;
+            _H_landingTimerHash += _hardfallTime * Time.deltaTime;
             
             
             //---------------------------------------------------------------------------
@@ -885,7 +885,7 @@ public class Playa : MonoBehaviour
 
             if (grounded
                 && _softLandingTimer >= 0.4f
-                && _S_landingHash > 0.4)
+                && _S_landingTimerHash > 0.4)
             {
                 _softLand = true;
                 airBorne = false;
@@ -902,9 +902,9 @@ public class Playa : MonoBehaviour
                 _softLand = false;
             }
 
-            if (grounded && _S_landingHash <= 5f)
+            if (grounded && _S_landingTimerHash <= 5f)
             {
-                _S_landingHash = 0f;
+                _S_landingTimerHash = 0f;
 
             }
 
@@ -912,7 +912,7 @@ public class Playa : MonoBehaviour
         }
         else
         {
-           _S_landingHash += Time.deltaTime;
+           _S_landingTimerHash += Time.deltaTime;
             groundTimer = 0f;
 
             
@@ -951,7 +951,7 @@ public class Playa : MonoBehaviour
 
             if (grounded
                 && hardLandingTimer >= 5f
-                && _H_landingHash >= 5f )
+                && _H_landingTimerHash >= 5f )
             {
                 SetAnimBool(softLandingHash, false);
                 SetAnimBool(hardLandingHash, true);
@@ -981,9 +981,9 @@ public class Playa : MonoBehaviour
 
 
             if (grounded 
-                && _H_landingHash <= 0f)
+                && _H_landingTimerHash <= 0f)
             {
-                _H_landingHash = 0f;
+                _H_landingTimerHash = 0f;
                 SetAnimBool(rollingHash, false);
                 canMove = true;
             }
@@ -1001,8 +1001,8 @@ public class Playa : MonoBehaviour
             
             
 
-            _S_landingHash -= _softFallTime * Time.deltaTime;
-            _H_landingHash -= _hardfallTime * Time.deltaTime;
+            _S_landingTimerHash -= _softFallTime * Time.deltaTime;
+            _H_landingTimerHash -= _hardfallTime * Time.deltaTime;
             
            
 
@@ -1024,8 +1024,8 @@ public class Playa : MonoBehaviour
 
         //SetAnimBool(hardLandingHash, false);
 
-        SetAnimeFloat(_hardLandingTimeHash, _H_landingHash);
-        SetAnimeFloat(_softLandingTimeHash, _S_landingHash);
+        SetAnimeFloat(_hardLandingTimeHash, _H_landingTimerHash);
+        SetAnimeFloat(_softLandingTimeHash, _S_landingTimerHash);
 
         return grounded;
     }

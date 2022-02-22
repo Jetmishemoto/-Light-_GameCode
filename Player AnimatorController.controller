@@ -781,7 +781,7 @@ AnimatorStateMachine:
     m_Position: {x: 900, y: -20, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8421928529733377521}
-    m_Position: {x: 300, y: -30, z: 0}
+    m_Position: {x: 300, y: -20, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -789,7 +789,7 @@ AnimatorStateMachine:
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 260, y: 40, z: 0}
   m_EntryPosition: {x: 260, y: 80, z: 0}
-  m_ExitPosition: {x: 620, y: 220, z: 0}
+  m_ExitPosition: {x: 620, y: 200, z: 0}
   m_ParentStateMachinePosition: {x: 600, y: -20, z: 0}
   m_DefaultState: {fileID: -3525038816778318263}
 --- !u!1101 &-7721882358052933994
@@ -2256,7 +2256,7 @@ AnimatorStateMachine:
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 270, y: 50, z: 0}
   m_EntryPosition: {x: 510, y: -110, z: 0}
-  m_ExitPosition: {x: 830, y: 50, z: 0}
+  m_ExitPosition: {x: 500, y: 180, z: 0}
   m_ParentStateMachinePosition: {x: 490, y: 80, z: 0}
   m_DefaultState: {fileID: 3543466890544844805}
 --- !u!1101 &-4383352290140180107
@@ -3366,9 +3366,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.09515072
-  m_TransitionOffset: 0.38576338
-  m_ExitTime: 0.57788116
+  m_TransitionDuration: 0.21400784
+  m_TransitionOffset: 0.33721158
+  m_ExitTime: 0.52759546
   m_HasExitTime: 0
   m_HasFixedDuration: 0
   m_InterruptionSource: 0
@@ -3543,12 +3543,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: Roll
     m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: isNowGrounded
-    m_EventTreshold: 0
-  - m_ConditionMode: 3
-    m_ConditionEvent: _hardLandingTime
-    m_EventTreshold: 5
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -8421928529733377521}
   m_Solo: 0
@@ -5262,8 +5256,8 @@ AnimatorStateTransition:
   m_IsExit: 0
   serializedVersion: 3
   m_TransitionDuration: 0.25000012
-  m_TransitionOffset: 0.010071151
-  m_ExitTime: 0.44821414
+  m_TransitionOffset: 0.024001088
+  m_ExitTime: 0.51351076
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -7189,8 +7183,8 @@ AnimatorStateTransition:
   m_IsExit: 0
   serializedVersion: 3
   m_TransitionDuration: 0.17274815
-  m_TransitionOffset: 0.3052528
-  m_ExitTime: 0.41377112
+  m_TransitionOffset: 0.374108
+  m_ExitTime: 0.4527711
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0

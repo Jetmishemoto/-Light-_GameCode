@@ -14,8 +14,7 @@ public class P_LightAttack : MonoBehaviour
 
 
   
-    public bool attackReady = false;
-    public bool paused = false;
+    public bool attackReady;
     public bool _canAttack = false;
     public bool _recharging = false;
 
@@ -24,20 +23,21 @@ public class P_LightAttack : MonoBehaviour
 
     public  float _rechargeTime = 0f;
     public float _rechageDuration = 5f;
-    public bool _rechargeFinished;
-
 
     public float _attackTimer;
-    [SerializeField] private bool attacking;
-    public bool attackAnimationReady;
-    Coroutine rechargeRoutine;
+   
 
-    public void Start()
+      
+
+
+
+
+
+
+    public void Awake()
     {
-       //_attackTimer = Time.time;
-        _canAttack = false;
-        attacking = false;
-        _rechargeFinished = false;
+        _attackTimer = Time.time;
+        attackReady = true;
         
      
     }
@@ -47,60 +47,27 @@ public class P_LightAttack : MonoBehaviour
     // Update is called once per frame--------------------------------------------------   | Player Input |
     public void Update()
     {
-       //_attackTimer += Time.deltaTime;
+        _attackTimer += Time.deltaTime;
 
-        if (_lightCount >= 3)
-        {
-            attackReady = true;
-            attackAnimationReady = true;
-        }
-       
-        if (attackChanes <= 0)
-        {
-            _canAttack = false;
-            attackAnimationReady = false;
-        }
-        
-        if (attackChanes == _lightCount)
-        {
-            _canAttack = true;
-
-        }
-
-        if (attackChanes < 0)
-        {
-            attackChanes = 0;
-        }
-
-
-        if (_canAttack)
-        {
+        if (Input.GetKeyDown(KeyCode.J)
+            && attackReady
+            && _canAttack == true
+            && attackChanes > 0){
+            StartCoroutine(PreventSpam());
             LightAttack();
+            _attackTimer = 0;
         }
 
 
-        if (attackChanes == 0)
+        if(attackChanes <= 0
+           &&_canAttack == false)
         {
-            _rechargeTime += Time.deltaTime;
-           rechargeRoutine =  StartCoroutine(Recharge());
+            StartCoroutine(Recharge());
         }
-        if (rechargeRoutine != null
-            && _recharging == false
-            && _rechargeTime >= 5f)
+        else
         {
-            StopAllCoroutines();
-            _rechargeTime = 0f;
+            StopCoroutine(Recharge());
         }
-
-
-        if (_rechargeFinished == true)
-        {
-            _canAttack = true;
-            attackChanes = _lightCount;
-            _rechargeFinished = false;
-        }
-
-
 
     }
 
@@ -109,35 +76,31 @@ public class P_LightAttack : MonoBehaviour
     {
         _lightCount++;
         attackChanes++;
-     
+
+        if (_lightCount >= 3
+            && attackChanes > 0
+            && _recharging == false)
+        {
+            _canAttack = true;
+        }
+        else
+        {
+
+            _canAttack = false;
+        }
+
+
     }
 
 
     public void LightAttack()
     {
-
-        if (attackChanes == 0 
-            && _recharging == true) return;
-     
-        else if (Input.GetKeyDown(KeyCode.J)
-           && attackReady == true
-           && paused == false
-           && _recharging == false)
-        {
-            attacking = true;
-            attackAnimationReady = true;
-            attackChanes--;
-            StartCoroutine(PreventSpam());
-
-            _attackOrb.thrown = true;
-            GameObject _Light = Instantiate(_lil_Light,
-            transform.position + (transform.right * 1),
-            transform.rotation);
-            _Light.GetComponent<Rigidbody>().AddForce(transform.right * 2500);
-
-        }
-        else return;
-       
+        _attackOrb.thrown = true;
+        attackChanes--;
+        GameObject _Light = Instantiate(_lil_Light,
+        transform.position + (transform.right * 1),
+        transform.rotation);
+        _Light.GetComponent<Rigidbody>().AddForce(transform.right * 2500);
     }
 
 
@@ -145,33 +108,26 @@ public class P_LightAttack : MonoBehaviour
     IEnumerator PreventSpam()
     {
         attackReady = false;
-        paused = true;
         _canAttack = false;
-        attacking = false;
-        attackAnimationReady = false;
     //Controls the player attack Timeing(0.7) OGtime
         yield return new WaitForSeconds(0.7f);
         _canAttack = true;
         attackReady = true;
-        paused = false;
-        
 
     }
 
 
-    IEnumerator Recharge()
-    {
+
+
+    IEnumerator Recharge(){
 
         _recharging = true;
-
-        attackReady = false;
         _canAttack = false;
-        //print("recharge");
-        // ---------------------------------  5f
+
         yield return new WaitForSeconds(_rechageDuration);
-        //print("recharge_fin");
+        attackChanes = _lightCount;
+        _canAttack = true;
         _recharging = false;
-        _rechargeFinished = true;
 
     }
 

@@ -25,7 +25,7 @@ public class Lil_AttackOrb : MonoBehaviour
 
 
 
-    public  void Start()
+    private void Start()
     {
         playerPos = GameObject.FindGameObjectWithTag("C-Orbit_Target").transform;
     }
