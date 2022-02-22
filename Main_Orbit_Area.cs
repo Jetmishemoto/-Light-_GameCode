@@ -20,8 +20,8 @@ public class Main_Orbit_Area : MonoBehaviour
 
     Coroutine orbRcharge;
 
-       
 
+    [SerializeField] Vector3 orbitTilt;
 
 
     // Start is called before the first frame updates
@@ -31,7 +31,7 @@ public class Main_Orbit_Area : MonoBehaviour
         
         c_light = GameObject.FindGameObjectsWithTag("O_Ball");
 
-        this.gameObject.transform.rotation = Quaternion.Euler(0, 0, -16f);
+        this.gameObject.transform.rotation = Quaternion.Euler(orbitTilt);
         
      }
 
