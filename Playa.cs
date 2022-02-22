@@ -36,7 +36,7 @@ public class Playa : MonoBehaviour
 
 
 
-    [SerializeField] private UltEvents.UltEvent _MyEvent;
+    //[SerializeField] private UltEvents.UltEvent _MyEvent;
 
 
 
@@ -80,11 +80,11 @@ public class Playa : MonoBehaviour
     public float _slide_Deceleration = 5f;
 
 
-    [SerializeField]float _airBorneHight;
+    [SerializeField] float _airBorneHight;
     [SerializeField] float _softAirBorneHight;
 
     int VelocityHash;
-   float _S_landingTimerHash;
+    float _S_landingTimerHash;
     float _H_landingTimerHash;
 
 
@@ -210,7 +210,7 @@ public class Playa : MonoBehaviour
     [Header("||-----------------------------------------------||")]
     [Range(4f, 50f)]
     public float LongJumpingSpeed = 25;
-    [SerializeField]float jumpingTimer = 0.5f;
+    [SerializeField] float jumpingTimer = 0.5f;
     public float verticalWallJumpingSpeed = 20f;
     public float horizontalWalljumpingSpeed = 3.5f;
     public float destroyEnemyJumpingSpeed = 9f;
@@ -230,8 +230,8 @@ public class Playa : MonoBehaviour
 
     [Header("-----------------Attack Variables-----------------")]
 
-     [SerializeField] bool attackAnimation;
-      
+    [SerializeField] bool attackAnimation;
+
 
 
 
@@ -253,11 +253,8 @@ public class Playa : MonoBehaviour
     private bool canWallJumpLeft = false;
     private bool canWallJumpRight = false;
 
-    public bool lightspeed = false;
+     [SerializeField] bool lightspeed = false;
 
-    private bool finished = false;
-    private bool canMove = true;
-    
     private bool wallJumpingArea = false;
 
 
@@ -296,9 +293,37 @@ public class Playa : MonoBehaviour
     //------------------------------------------------------------  
 
 
+    //---
 
+
+    public bool _lightSpeed
+    {
+        get { return lightspeed; }
+        set { _lightSpeed = value; }
+    }
+
+    
+
+
+
+
+
+    private bool canMove;
+    public bool _canMove
+    {
+        get
+        {
+            return canMove;
+        }
+        set
+        {
+            _canMove = value;
+        }
+    }
 
     // finishline logic 
+    private bool finished = false;
+
     public bool Finished
     {
 
@@ -324,6 +349,9 @@ public class Playa : MonoBehaviour
 
     }
     // -------------------------------------------------------------  | Death Method |
+
+    //---
+
 
 
     private void OnEnable()
@@ -635,6 +663,8 @@ public class Playa : MonoBehaviour
     // ---------->>>>>>>>>-------------------------------------------------------------------------------------------------->>>>>>>>>>>------  *| MovePlayer Method |*
     public void MovePlayer()
     {
+        canMove = true;
+
         if (dead)
         {
             return;
