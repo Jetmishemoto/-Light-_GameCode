@@ -200,6 +200,7 @@ public class Playa : MonoBehaviour
     public float _fallTime = 3f;
     public int _hardfallTime = 3;
     public int _softFallTime = 1;
+    [SerializeField] bool isGrounded;
     [SerializeField] float groundTimer = 0f;
     [SerializeField] bool _softLand = false;
     [SerializeField] bool _hardLand = false;
@@ -256,7 +257,7 @@ public class Playa : MonoBehaviour
 
     private bool finished = false;
     private bool canMove = true;
-    [SerializeField] bool isGrounded;
+    
     private bool wallJumpingArea = false;
 
 
@@ -898,6 +899,7 @@ public class Playa : MonoBehaviour
             {
                 SetAnimBool(softLandingHash, false);
                 SetAnimBool(airBorneHash, false);
+                _softLand = false;
             }
 
             if (grounded && _S_landingHash <= 5f)
@@ -913,7 +915,7 @@ public class Playa : MonoBehaviour
            _S_landingHash += Time.deltaTime;
             groundTimer = 0f;
 
-            _softLand = false;
+            
 
             ResetMovementspeed();
             SetAnimBool(softLandingHash, false);
