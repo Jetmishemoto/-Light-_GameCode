@@ -204,6 +204,7 @@ public class Playa : MonoBehaviour
     [SerializeField] float groundTimer = 0f;
     [SerializeField] bool _softLand = false;
     [SerializeField] bool _hardLand = false;
+    [SerializeField] bool _canSlide = false;
 
 
 
@@ -267,7 +268,7 @@ public class Playa : MonoBehaviour
     public float _runningTimer = 0f;
     public float _slidingTimer = 0f;
     public bool _running = false;
-    public bool _canSlide = false;
+    
 
     private bool _boostJumping = false;
 
@@ -293,13 +294,20 @@ public class Playa : MonoBehaviour
     //------------------------------------------------------------  
 
 
+
+
+
+
+
+
+
     //---
 
-    [SerializeField] bool lightspeed = false;
+   [SerializeField] bool lightSpeed = false;
     public bool _lightSpeed
     {
-        get { return lightspeed; }
-        set { _lightSpeed = value; }
+        get { return lightSpeed; }
+        set { _lightSpeed = value;}
     }
 
     
@@ -311,14 +319,8 @@ public class Playa : MonoBehaviour
    [SerializeField]  bool canMove;
     public bool _canMove
     {
-        get
-        {
-            return canMove;
-        }
-        set
-        {
-            _canMove = value;
-        }
+        get{return canMove;}
+        set{_canMove = value;}
     }
 
     // finishline logic 
@@ -425,9 +427,6 @@ public class Playa : MonoBehaviour
         ControllerInputs();
 
         // -------------------------------------------------------------------------------------------------------------------------------------------- | End Player Inputs |
-
-        
-        
 
 
         rb = GetComponent<Rigidbody>();
@@ -566,11 +565,11 @@ public class Playa : MonoBehaviour
         if (movementSpeed >= 25f)
         {
          
-           lightspeed = true;
+           lightSpeed = true;
        
         }
         else{
-            lightspeed = false;
+            lightSpeed = false;
         }
         return true;
     }
@@ -773,7 +772,9 @@ public class Playa : MonoBehaviour
             _canSlide = false;
         }
         //      animator.Set float() to acces the Float Psrameter in unitys animator componet
-                SetAnimeFloat(VelocityHash, _velocity);
+       SetAnimeFloat(VelocityHash, _velocity);
+        print(_velocity);
+                   
 
        
 
@@ -796,6 +797,7 @@ public class Playa : MonoBehaviour
         bool pressingSlideButton = Input.GetKeyDown(KeyCode.N);
         if (pressingSlideButton && _runningTimer > 1.5f && Time.time > _slidingTimer)
         {
+             _canSlide = true;
             SetAnimBool(can_slideHash,true);
             SetAnimBool(isSlidingHash, true);
             //  Change Time.time + (someNumber) if you want the player to be able to slide more often.
@@ -1228,7 +1230,8 @@ public class Playa : MonoBehaviour
         bool pressingFireButton = Input.GetKeyDown(KeyCode.J);
 
         if (pressingFireButton
-            && p_LightAttack._canAttack == true)
+            && p_LightAttack._canAttack == true
+            && p_LightAttack._recharging == false)
         {
             //print("attack");
             SetAnimBool(attackinghash, true);
@@ -1481,7 +1484,7 @@ public class Playa : MonoBehaviour
         //                                    ---() !=---  means "is different than"
         if (otherCollider.GetComponent<SpeedArea>() != null)
         {
-            lightspeed = true;
+            lightSpeed = true;
 
             SpeedArea speedArea = otherCollider.GetComponent<SpeedArea>();
             if (speedArea.direction == Direction.Left)

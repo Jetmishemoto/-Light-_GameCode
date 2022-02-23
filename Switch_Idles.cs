@@ -8,7 +8,7 @@ public class Switch_Idles : StateMachineBehaviour
     readonly float idleMinTime = 1;
     readonly float idleMaxTime = 3;
     
-    float idleTimer = 0;
+    [SerializeField] float idleTimer = 0;
 
    
 

@@ -75,10 +75,10 @@
     <Compile Include="Assets\Effects and Prefabs\VolumetricLights\Scripts\VolumetricLight.cs" />
     <Compile Include="Assets\Prefabs\Effects\Realistic Effects Pack v4\SceneResources\Other\RFX4_MouseOrbit.cs" />
     <Compile Include="Assets\Prefabs\Effects\Realistic Effects Pack v4\Effects\Scripts\Curves\RFX4_ShaderFloatCurve.cs" />
-    <Compile Include="Assets\Scripts\Game\Cs_Attacks\Orb_attack.cs" />
     <Compile Include="Assets\Prefabs\Effects\Realistic Effects Pack v4\Effects\Scripts\RFX4_TrailRenderer.cs" />
     <Compile Include="Assets\Inputs\Player_Inputs.cs" />
     <Compile Include="Assets\Prefabs\Effects\Realistic Effects Pack v4\Effects\Scripts\RFX4_EffectEvent.cs" />
+    <Compile Include="Assets\playerFallowTarget.cs" />
     <Compile Include="Assets\Prefabs\Effects\Realistic Effects Pack v4\Effects\Scripts\RFX4_ColorHelper.cs" />
     <Compile Include="Assets\Effects and Prefabs\MeshEffect\Scripts\ME_LightCurves.cs" />
     <Compile Include="Assets\Prefabs\Effects\Realistic Effects Pack v4\Effects\Scripts\Curves\RFX4_WindCurves.cs" />
@@ -103,7 +103,6 @@
     <Compile Include="Assets\Effects and Prefabs\VolumetricLights\Scripts\VolumetricLightAnimation.cs" />
     <Compile Include="Assets\Scripts\Game\Player\Orbit_Path.cs" />
     <Compile Include="Assets\Effects and Prefabs\MeshEffect\Scripts\Helpers\ME_AnimatorEvents.cs" />
-    <Compile Include="Assets\Scripts\Game\Player\C_Orbit.cs" />
     <Compile Include="Assets\Prefabs\Effects\Realistic Effects Pack v4\Effects\Scripts\RFX4_CustomLight.cs" />
     <Compile Include="Assets\Effects and Prefabs\MeshEffect\Scripts\ME_FixParticlesAligment.cs" />
     <Compile Include="Assets\SwitchJumps.cs" />
@@ -194,6 +193,7 @@
     <Compile Include="Assets\Scripts\Level_elements\BallBack.cs" />
     <Compile Include="Assets\Prefabs\Effects\Realistic Effects Pack v4\Effects\Scripts\ParticleSysem\RFX4_Turbulence.cs" />
     <Compile Include="Assets\Scripts\Game\Cs_Attacks\Light_Scripts\LightWeapon5.cs" />
+    <Compile Include="Assets\playerGameObject.cs" />
     <Compile Include="Assets\Scripts\Managers\LevelManager.cs" />
     <Compile Include="Assets\Scripts\Enemy\Patrollingenemy.cs" />
     <Compile Include="Assets\Prefabs\Effects\Realistic Effects Pack v4\Effects\Scripts\RFX4_TextureShaderProperties.cs" />
@@ -202,8 +202,6 @@
     <Compile Include="Assets\Prefabs\Effects\Realistic Effects Pack v4\Effects\Scripts\Curves\RFX4_ScaleCurves.cs" />
     <Compile Include="Assets\Effects and Prefabs\MeshEffect\DemoResources\Scripts\ME_MouseOrbit.cs" />
     <Compile Include="Assets\Sky\Skies\Scripts\Render Features\SkyboxCloudsFeature.cs" />
-    <Compile Include="Assets\playerGameObject.cs" />
-    <Compile Include="Assets\playerFallowTarget.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Samples\Terrain Tools\0.1.0-preview\Terrain Assets\ThirdPartyNotices.txt" />

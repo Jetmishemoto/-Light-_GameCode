@@ -9,12 +9,21 @@ public class SwitchRunning : StateMachineBehaviour
 
 
     readonly float runMinTime = 1;
-    readonly float runMaxTime = 2;
+    readonly float runMaxTime = 3;
 
-    float runTimer = 0;
+    [SerializeField] float runTimer = 0;
 
     string [] runningStatses = {"Running_float","WalknRun" };
-    
+
+    void PlayRandomRun(Animator animator)
+    {
+        System.Random rnd = new System.Random();
+        int runState = rnd.Next(runningStatses.Length);
+        string runStates = runningStatses[runState];
+        animator.SetTrigger(runStates);
+    }
+
+
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     //{
@@ -39,14 +48,6 @@ public class SwitchRunning : StateMachineBehaviour
         else{
             runTimer -= Time.deltaTime;
         }
-    }
-
-    void PlayRandomRun(Animator animator)
-    {
-        System.Random rnd = new System.Random();
-        int runState = rnd.Next(runningStatses.Length);
-        string runStates = runningStatses[runState];
-        animator.SetTrigger(runStates);
     }
 
 
