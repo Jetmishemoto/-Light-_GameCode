@@ -31,30 +31,30 @@ public class AnimationStateController : MonoBehaviour
 
 
     }
-    //private void SwordAttackStateMonitor()
-    //{
-    //    if (currentStateInfo_0.IsName(""))
-    //    {
-    //       //playa._canMove = false;
+    private void SwordAttackStateMonitor()
+    {
+        if (currentStateInfo_0.IsName(""))
+        {
+            //playa._canMove = false;
 
-    //    }
-    //    if (playa._canMove)
-    //    {
-
-            
-    //        //print("CanMove");
-    //    }
+        }
+        if (playa._canMove)
+        {
 
 
-    //}
+            //print("CanMove");
+        }
 
 
-   
+    }
+
+
+
 
 
     void Update()
     {
-       // SwordAttackStateMonitor();
+        SwordAttackStateMonitor();
         IdleStatesMonitor();
         currentStateInfo_0 = _anim.GetCurrentAnimatorStateInfo(0);
 

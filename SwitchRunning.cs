@@ -9,7 +9,7 @@ public class SwitchRunning : StateMachineBehaviour
 
 
     readonly float runMinTime = 1;
-    readonly float runMaxTime = 3;
+    readonly float runMaxTime = 2.7f;
 
     [SerializeField] float runTimer = 0;
 

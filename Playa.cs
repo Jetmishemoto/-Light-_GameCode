@@ -211,7 +211,9 @@ public class Playa : MonoBehaviour
     [Header("||-----------------------------------------------||")]
     [Range(4f, 50f)]
     public float LongJumpingSpeed = 25;
-    [SerializeField] float jumpingTimer = 0.5f;
+    [SerializeField] bool canJump;
+    [SerializeField] bool jumping = false;
+    [SerializeField] float jumpingTimer = 1f;
     public float verticalWallJumpingSpeed = 20f;
     public float horizontalWalljumpingSpeed = 3.5f;
     public float destroyEnemyJumpingSpeed = 9f;
@@ -246,8 +248,7 @@ public class Playa : MonoBehaviour
 
     private bool dead = false;
 
-    [SerializeField] bool canJump;
-    [SerializeField] bool jumping = false;
+   
     private bool jumped = false;
 
 
@@ -773,7 +774,7 @@ public class Playa : MonoBehaviour
         }
         //      animator.Set float() to acces the Float Psrameter in unitys animator componet
        SetAnimeFloat(VelocityHash, _velocity);
-        print(_velocity);
+        //print(_velocity);
                    
 
        
@@ -976,7 +977,7 @@ public class Playa : MonoBehaviour
         {
              ResetMovementspeed();
 
-            _canDoubleJump = true;  
+           
             SetAnimBool(dd_LandingHash, true);
             //--------------------------------------------------------------------------
 
@@ -996,9 +997,11 @@ public class Playa : MonoBehaviour
             }
             else _hardLand = false;
 
+
+               // try to add _volocity < 0.001f to if()
             if (grounded
                 && currentStateInfo_0.IsName("HardLanding"))
-            {
+            {   
                 SetAnimBool(rollingHash, true);
                print("roll now");
                 
@@ -1065,14 +1068,12 @@ public class Playa : MonoBehaviour
     public void DoubleJump()
     {
         bool pressingJumpButton = Input.GetMouseButtonDown(0) || Input.GetKeyDown("space");
-        if (pressingJumpButton || pressedJumpButton
-            && jumped
+        if (pressingJumpButton
             && _canDoubleJump)
         {
             _ddLandingTimer += _fallTime * Time.deltaTime;
 
             SetAnimBool(isDoubleJumpingHash, true);
-            PlayAnim("Double_Jump");
             _canDoubleJump = false;
             rb.velocity = new Vector3(
            rb.velocity.x,
@@ -1169,7 +1170,7 @@ public class Playa : MonoBehaviour
     {
 
         
-        jumped = true;
+        
         jumping = true;
 
         if (hitenemy)
@@ -1191,10 +1192,12 @@ public class Playa : MonoBehaviour
                                * GetComponent<rigidboby>().                             
                                 This effecs the player alowing them to jump by clicking or hiting spacebar if they are grounded*/
             //PlayAnim("FrontTwistFlip");
-            
+
+            jumped = false;
+            _canDoubleJump = true;
+
             StartCoroutine(PauseJump());
-            
-             SetAnimBool(isJumpingHash, true);
+            SetAnimBool(isJumpingHash, true);
             rb.velocity = new Vector3(
             rb.velocity.x,
             //set y axes to jumping speed---this calls the public float jumping speed method.
@@ -1277,7 +1280,7 @@ public class Playa : MonoBehaviour
 
         IsGrounded();
         IsSliding();
-        //DoubleJump();
+        
         WallJumping();
         OrbAttackAnimation();
 
@@ -1308,6 +1311,8 @@ public class Playa : MonoBehaviour
             // Set the bool in the animator componet to true when you hit the jumpbutton
 
             SetAnimBool(isJumpingHash, true);
+            jumped = true;
+           
             //print(jumping);
             Jump();
 
@@ -1321,7 +1326,8 @@ public class Playa : MonoBehaviour
             && pressedJumpButton)
         {
             SetAnimBool(isJumpingHash, true);
-           //print(jumping);
+           
+           print(jumping);
             Jump();
         }
       
