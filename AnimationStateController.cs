@@ -7,21 +7,38 @@ public class AnimationStateController : MonoBehaviour
     private Playa playa;
     private Animator _anim;
     private AnimatorStateInfo currentStateInfo_0;
+    
+    public GameObject swordPrefab;
+
+
+    int isJumpingHash;
+    int mainLayer;
 
 
 
 
     void Awake()
     {
+        swordPrefab = GameObject.FindGameObjectWithTag("Sword");
         playa = GetComponent<Playa>();
         _anim = GetComponent<Animator>();
+
+        isJumpingHash = Animator.StringToHash("isJumping");
+        mainLayer =_anim.GetLayerIndex("Main");
 
     }
 
 
 
 
-
+    private void AnimationLayerMonitor()
+    {
+        if (mainLayer == 0)
+        {
+            MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
+            meshRenderer.enabled = false;
+        }
+    }
 
 
 
@@ -31,6 +48,9 @@ public class AnimationStateController : MonoBehaviour
 
 
     }
+
+
+
     private void SwordAttackStateMonitor()
     {
         if (currentStateInfo_0.IsName(""))
@@ -46,6 +66,14 @@ public class AnimationStateController : MonoBehaviour
         }
 
 
+    }
+    private bool JumpingStateMonitor()
+    {
+        if ( playa._Jumping == true )
+        {
+            _anim.SetBool(isJumpingHash, true);
+        }
+        return true;
     }
 
 

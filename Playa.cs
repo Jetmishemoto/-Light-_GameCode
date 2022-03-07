@@ -213,6 +213,11 @@ public class Playa : MonoBehaviour
     public float LongJumpingSpeed = 25;
     [SerializeField] bool canJump;
     [SerializeField] bool jumping = false;
+    public bool _Jumping
+    {
+        get { return jumping; }
+        set { _Jumping = value; }
+    }
     [SerializeField] float jumpingTimer = 1f;
     public float verticalWallJumpingSpeed = 20f;
     public float horizontalWalljumpingSpeed = 3.5f;
