@@ -1008,7 +1008,7 @@ public class Playa : MonoBehaviour
                 && currentStateInfo_0.IsName("HardLanding"))
             {   
                 SetAnimBool(rollingHash, true);
-               print("roll now");
+               //print("roll now");
                 
             }
 
