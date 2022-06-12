@@ -1,0 +1,153 @@
+fileFormatVersion: 2
+guid: 9e03df936e1e67946a937d95d6858ac1
+ModelImporter:
+  serializedVersion: 20200
+  internalIDToNameTable:
+  - first:
+      74: 5649265729627485098
+    second: rig|Airborn_2
+  - first:
+      74: -7373868192737814079
+    second: rig|Attack_Ready
+  - first:
+      74: 2270173304105106483
+    second: rig|Back_Flip_Kick
+  - first:
+      74: -8835864128314818289
+    second: rig|Fancey_Stand_Toss
+  - first:
+      74: 2176407501588934475
+    second: rig|New_Jog
+  - first:
+      74: 7785352057233562685
+    second: rig|New_Runn
+  - first:
+      74: -4454330336900714080
+    second: rig|Norm_Jump_2
+  - first:
+      74: 4974248287748622792
+    second: rig|Orbs_respawn
+  - first:
+      74: 8356815651270690569
+    second: rig|side_kick_Attack
+  - first:
+      74: -3125463130251462695
+    second: rig|Swo_Attack_1
+  - first:
+      74: 7352423945317637669
+    second: rig|Swo_Attack_1_end
+  - first:
+      74: -1024503743138789995
+    second: rig|Swo_Attack_2
+  - first:
+      74: 6029175379829113674
+    second: rig|Swo_Attack_3
+  - first:
+      74: -1237015011842164492
+    second: rig|Swo_Attack_4
+  - first:
+      74: -4375817945534061836
+    second: rig|Swo_Attack_5
+  - first:
+      74: -8515614283883464403
+    second: rig|Swo_Idle_1
+  - first:
+      74: 1741010701955253589
+    second: rig|Swo_Idle_2
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
